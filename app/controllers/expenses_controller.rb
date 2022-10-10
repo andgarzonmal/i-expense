@@ -22,7 +22,7 @@ class ExpensesController < ApplicationController
   # POST /expenses or /expenses.json
   def create
     @expense = Expense.new(expense_params)
-
+    @expense.user = current_user
     respond_to do |format|
       if @expense.save
         format.html { redirect_to expense_url(@expense), notice: "Expense was successfully created." }
