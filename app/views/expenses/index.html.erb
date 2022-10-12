@@ -1,14 +1,35 @@
-<p style="color: green"><%= notice %></p>
+  <h1 class= "section" >Expenses</h1>
 
-<h1>Expenses</h1>
-
-<div id="expenses">
-  <% @expenses.each do |expense| %>
-    <%= render expense %>
-    <p>
-      <%= link_to "Show this expense", expense %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New expense", new_expense_path %>
+  <div class= "expenses-container">
+    <div class="card-expense">
+      <%= image_tag @group.icon, class:'g-icon' %>
+      <div class="card_info">
+        <div class="info">
+          <h3><%= @group.name %></h3>
+          <h3><%= category_sum(@group) %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="expenses">
+      <% @expenses.each do |expense| %>
+        <div class="expense-container">
+          <div class = "expense-info">
+            <p>
+              <strong>Name:</strong>
+              <%= expense.name %>
+            </p>
+            <p>
+              <strong>Amount:</strong>
+              <%= expense.amount %>
+            </p>
+          </div>
+          <p>
+            <%= button_to "Delete",  group_expense_path(@group, expense), method: :delete%>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class= 'new-expense'>
+    <%= link_to "New expense", new_group_expense_path%>
+  </div>

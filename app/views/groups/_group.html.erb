@@ -1,17 +1,16 @@
 <div id="<%= dom_id group %>">
-  <p>
-    <strong>User:</strong>
-    <%= group.user_id %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
-
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
-
+  <div class="card">
+    <%= image_tag group.icon, class:'g-icon' %>
+    <div class="card_info">
+      <div class="info">
+        <h3><%= group.name %></h3>
+        <h3><%= category_sum(group) %></h3>
+      </div>
+      <div class="options">
+        <%= link_to "Edit Category", group %>
+        <%= link_to "See expenses", group_expenses_path(group) %>
+        <%= button_to "Remove", group, method: :delete %>
+      </div>
+    </div>
+  </div>
 </div>
