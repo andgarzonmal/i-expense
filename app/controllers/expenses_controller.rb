@@ -3,27 +3,36 @@ class ExpensesController < ApplicationController
 
   # GET /expenses or /expenses.json
   def index
-    @expenses = Expense.all
+    @group = Group.find(params[:group_id])
+    @expenses = @group.expenses
   end
 
   # GET /expenses/1 or /expenses/1.json
-  def show; end
+  def show
+    @group = Group.find(params[:group_id])
+  end
 
   # GET /expenses/new
   def new
+    @group = Group.find(params[:group_id])
     @expense = Expense.new
   end
 
   # GET /expenses/1/edit
-  def edit; end
+  def edit 
+    @group = Group.find(params[:group_id])
+  end
 
   # POST /expenses or /expenses.json
   def create
     @expense = Expense.new(expense_params)
     @expense.user = current_user
+    @group = Group.find(params[:group_id])
+    @expense.groups.push(@group)
+
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to expense_url(@expense), notice: 'Expense was successfully created.' }
+        format.html { redirect_to group_expenses_path(@group), notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,9 +43,10 @@ class ExpensesController < ApplicationController
 
   # PATCH/PUT /expenses/1 or /expenses/1.json
   def update
+    @group = Group.find(params[:group_id])
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to expense_url(@expense), notice: 'Expense was successfully updated.' }
+        format.html { redirect_to group_expense_path(@group, @expense), notice: 'Expense was successfully updated.' }
         format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -48,9 +58,10 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1 or /expenses/1.json
   def destroy
     @expense.destroy
-
+    @group = Group.find(params[:group_id])
+    
     respond_to do |format|
-      format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to group_expenses_path(@group), notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
