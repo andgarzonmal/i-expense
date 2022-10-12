@@ -59,5 +59,4 @@ RSpec.describe 'IndexRecipes', type: :system do
     click_on('New expense')
     expect(page.body).to include('New expense')
   end
-
 end
