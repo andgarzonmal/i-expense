@@ -1,15 +1,217 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: 0px;;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  background-color: #3778c2;
+  height: 60px;
+}
+
+nav {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #69e90e;
+  font-size: 30px
+}
+
+.logo-section {
+  color: white;
+}
+
+#logout-button .button_to button {
+  background: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: solid black 1px;
+  border-radius: 0.25rem;
+  transition: 0.2s;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+#logout-button .button_to button:hover {
+  background-color: rgba(255, 255, 255, 0.425);
+  transform: scale(1.1);
+}
+
+.splash_screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.name {
+  font-family: 'Bona Nova', serif;
+  color: #3778c2;
+  font-size: 50px;
+}
+
+.splash_buttons {
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+  width: 80%;
+}
+
+.app_button{
+  background-color: #3778c2;;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.app_button:hover{
+  background-color: rgb(136, 148, 159);
+}
+
+.app_categories-button { 
+  background-color: #3778c2;;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 25px;
+  margin-bottom: 60px;
+}
+
+.link_btn {
+  color: #f9f9f9;
+}
+
+/* categories */
+
+.section {
+  width: 100%;
+  background-color: #3778c2;
+  color: #f9f9f9;
+  text-align: center;
+  border-top: #5f92cb 1px solid;
+  padding: 5px;
+}
+
+.groups-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 82vh;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.g-icon {
+  width: 70px;
+}
+
+.groups{
+  display: flex;
+  width: 85%;
+  padding: 4px;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: black 1px solid;
+}
+
+.card_info {
+  flex: 1;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.options {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.Add-cat{
+  position: fixed;
+  background-color: #5fb523;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  bottom: 0;
+}
+
+.cat {
+  color:#f9f9f9;
+  font-size: 30px;
+}
+
+.expenses-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.card-expense {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  border: black 1px solid;
+  border-radius: 5px;
+}
+
+.expenses {
+  margin-top: 25px;
+  width: 85%;
+}
+
+.new-expense {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  padding: 25px;
+  background-color: #5fb523;
+  width: 100vw;
+}
+
+.new-expense a {
+  color: #f9f9f9;
+  font-size: 30px;
+}
+
+.expense-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: #3778c2 1px solid;
+  width: 100%;
+  margin-top: 24px;
+}
