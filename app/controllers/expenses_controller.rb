@@ -19,7 +19,7 @@ class ExpensesController < ApplicationController
   end
 
   # GET /expenses/1/edit
-  def edit 
+  def edit
     @group = Group.find(params[:group_id])
   end
 
@@ -59,7 +59,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense.destroy
     @group = Group.find(params[:group_id])
-    
+
     respond_to do |format|
       format.html { redirect_to group_expenses_path(@group), notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
