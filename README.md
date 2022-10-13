@@ -3,7 +3,7 @@
 > The Expenses App is a mobile web application where you can manage your expenses
 
 # Live demo
-For a live demo of the project [click here](https://spend-app.fly.dev/).
+For a live demo of the project [click here](https://spending-app.fly.dev/).
 
 ## Getting Started
 
