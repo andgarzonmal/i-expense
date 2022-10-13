@@ -301,6 +301,16 @@ nav {
   font-size: 15px;
 }
 
+.title-f {
+  margin-bottom: 50px;
+  color: #f9f9f9;
+  font-family: 'Bona Nova', serif;
+}
+
+.form-new {
+  margin-bottom: 50px;
+}
+
 .form-new-container {
   display: flex;
   flex-direction: column;
@@ -311,12 +321,17 @@ nav {
   background-color: #5893dc;
 }
 
-.title-f {
-  margin-bottom: 50px;
-  color: #f9f9f9;
+.back {
+  margin: 25px;
+  background: none;
+  padding: 0.5rem;
+  border: solid black 1px;
+  border-radius: 0.25rem;
+  transition: 0.2s;
+  color: rgb(9, 9, 10);
+  cursor: pointer;
+  justify-self: center;
+  align-self: center;
   font-family: 'Bona Nova', serif;
-}
-
-.form-new {
-  margin-bottom: 50px;
+  font-size: 15px;
 }
