@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IExpense</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <% if user_signed_in?%>
+      <div class="nav-container">
+        <nav>
+          <div>
+            <h2 class=logo>i-<span class=logo-section>Expense<span></h2>
+          </div>
+          <div class="nav-links">
+              <div id="logout-button">
+                <%= button_to "Logout", destroy_user_session_path, { method: :delete, data: { turbo:false }}%>
+              </div>
+          </div>
+        </nav>
+      </div>
+    <% end %>
+    <div>   
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class= "section">Categories</h1>
+
+<%= link_to " Back to Menu", root_path, class: "back" %>
+<div class= "groups-container">
+  <div class="groups">
+    <% @groups.each do |group| %>
+      <div class="card">
+        <%= image_tag group.icon, class:'g-icon' %>
+        <div class="card_info">
+          <div class="info">
+            <h3><%= group.name %></h3>
+            <h3><%= category_sum(group) %></h3>
+          </div>
+          <div class="options">
+            <%= link_to "Edit Category", edit_group_path(group) %>
+            <%= link_to "See expenses", group_expenses_path(group) %>
+            <%= button_to "Remove", group, method: :delete %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="Add-cat">
+    <%= link_to "Add Category", new_group_path, class:"cat" %>
+  </div>
+</div>
